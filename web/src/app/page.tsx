@@ -111,19 +111,31 @@ const DataPage = () => {
   };
 
   return (
-    <> 
+    <>
+      <style jsx global>{`
+        html, body {
+          height: 100%;
+          margin: 0;
+        }
+        #__next {
+          height: 100%;
+        }
+      `}</style>
       <div className='h-full'>
-        <h1 className='text-2xl md:text-3xl lg:text-4xl flex justify-center my-2'>
-          Real Time Temperature & Humidity
-        </h1>
-        <h2 className='text-lg md:text-xl lg:text-2xl flex justify-center my-2'>
-          Last 30 data points in Osaka University
-        </h2>
-        <div className='h-[60vh] md:h-[70vh] lg:h-[80vh] w-[90vw] mx-auto'>
-          <Line data={combinedData} options={options} />
+        <div className='h-full text-center'>
+          <h1 className='text-2xl md:text-3xl lg:text-4xl my-2'>
+            Real Time Temperature & Humidity
+          </h1>
+          <h2 className='text-lg md:text-xl lg:text-2xl my-2'>
+            Last 30 data points in Osaka University
+          </h2>
+          <div className='h-[60vh] md:h-[70vh] lg:h-[80vh] w-[90vw] mx-auto'>
+            <Line data={combinedData} options={options} />
+          </div>
         </div>
       </div>
     </>
+
   );
 };
 

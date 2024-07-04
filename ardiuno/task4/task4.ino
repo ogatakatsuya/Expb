@@ -10,7 +10,7 @@
 #define REFERENCE_URL "https://expb-4e9bc-default-rtdb.asia-southeast1.firebasedatabase.app/"
 
 Firebase firebase(REFERENCE_URL);
-DHT dht(DHT_PIN, DHT_MODEL); 
+DHT dht(DHT_PIN, DHT_MODEL);
 
 void setup() {
   Serial.begin(9600);
@@ -45,7 +45,6 @@ void loop() {
 
   float Humidity = dht.readHumidity();
   float Temperature = dht.readTemperature();
-
   firebase.pushFloat("Temperature", Temperature);
   firebase.pushFloat("Humidity", Humidity);
 }
