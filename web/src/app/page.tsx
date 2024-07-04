@@ -36,7 +36,6 @@ const DataPage = () => {
       const temperatureRef = ref(database, 'Temperature');
       const unsubscribeTemperature = onChildAdded(temperatureRef, (snapshot) => {
         const newTemperature = Number(snapshot.val());
-        console.log("New temperature added: ", newTemperature);
         setTemperatureData((prev) => {
           const updatedData = [...prev, newTemperature];
           return updatedData.slice(-30);
@@ -46,7 +45,6 @@ const DataPage = () => {
       const humidityRef = ref(database, 'Humidity');
       const unsubscribeHumidity = onChildAdded(humidityRef, (snapshot) => {
         const newHumidity = Number(snapshot.val());
-        console.log("New humidity added: ", newHumidity);
         setHumidityData((prev) => {
           const updatedData = [...prev, newHumidity];
           return updatedData.slice(-30);
