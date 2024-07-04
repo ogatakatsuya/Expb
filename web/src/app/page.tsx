@@ -120,17 +120,15 @@ const DataPage = () => {
         }
       `}</style>
       <div className='h-full'>
-        <div className='h-full text-center'>
-          <h1 className='text-2xl md:text-3xl lg:text-4xl my-2'>
+          <h1 className='text-2xl md:text-3xl lg:text-4xl my-5 flex justify-center items-center'>
             Real Time Temperature & Humidity
           </h1>
-          <h2 className='text-lg md:text-xl lg:text-2xl my-2'>
+          <h2 className='text-lg md:text-xl lg:text-2xl my-2 flex justify-center items-center'>
             Last 30 data points in Osaka University
           </h2>
-          <div className='h-[60vh] md:h-[70vh] lg:h-[80vh] w-[90vw] mx-auto'>
+          <div className='h-[60vh] md:h-[70vh] lg:h-[80vh] w-[90vw] mx-auto flex justify-center items-center'>
             <Line data={combinedData} options={options} />
           </div>
-        </div>
       </div>
     </>
 
