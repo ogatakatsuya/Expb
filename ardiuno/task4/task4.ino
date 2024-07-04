@@ -45,4 +45,7 @@ void loop() {
 
   float Humidity = dht.readHumidity();
   float Temperature = dht.readTemperature();
+
+  firebase.pushFloat("Temperature", Temperature);
+  firebase.pushFloat("Humidity", Humidity);
 }

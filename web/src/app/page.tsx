@@ -4,8 +4,28 @@ import { useEffect, useState } from 'react';
 import { database } from '../lib/firebase/firebaseConfig';
 import { onChildAdded, ref } from '@firebase/database';
 import { FirebaseError } from '@firebase/util';
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import type { ChartOptions } from 'chart.js';
+
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const DataPage = () => {
   const [temperatureData, setTemperatureData] = useState<number[]>([]);
@@ -92,14 +112,16 @@ const DataPage = () => {
 
   return (
     <> 
-      <h1 className='text-2xl md:text-3xl lg:text-4xl flex justify-center my-2'>
-        Real Time Temperature & Humidity
-      </h1>
-      <h2 className='text-lg md:text-xl lg:text-2xl flex justify-center my-2'>
-        Last 30 data points in Osaka University
-      </h2>
-      <div className='h-[60vh] md:h-[70vh] lg:h-[80vh] w-[90vw] mx-auto'>
-        <Line data={combinedData} options={options} />
+      <div className='h-full'>
+        <h1 className='text-2xl md:text-3xl lg:text-4xl flex justify-center my-2'>
+          Real Time Temperature & Humidity
+        </h1>
+        <h2 className='text-lg md:text-xl lg:text-2xl flex justify-center my-2'>
+          Last 30 data points in Osaka University
+        </h2>
+        <div className='h-[60vh] md:h-[70vh] lg:h-[80vh] w-[90vw] mx-auto'>
+          <Line data={combinedData} options={options} />
+        </div>
       </div>
     </>
   );
