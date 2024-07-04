@@ -33,7 +33,6 @@ const DataPage = () => {
         });
       });
 
-      // Cleanup function to remove the listeners when the component unmounts
       return () => {
         unsubscribeTemperature();
         unsubscribeHumidity();
@@ -85,7 +84,7 @@ const DataPage = () => {
           text: 'Humidity (%)',
         },
         grid: {
-          drawOnChartArea: false, // Only draw grid lines for one axis
+          drawOnChartArea: false,
         },
       },
     },
