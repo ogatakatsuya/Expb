@@ -5,7 +5,7 @@ import { database } from '../lib/firebase/firebaseConfig';
 import { onChildAdded, ref } from '@firebase/database';
 import { FirebaseError } from '@firebase/util';
 import { Line } from 'react-chartjs-2';
-import 'chart.js/auto';
+import type { ChartOptions } from 'chart.js';
 
 const DataPage = () => {
   const [temperatureData, setTemperatureData] = useState<number[]>([]);
@@ -66,7 +66,7 @@ const DataPage = () => {
     ],
   };
 
-  const options = {
+  const options: ChartOptions<'line'> = {
     scales: {
       'y-axis-temperature': {
         type: 'linear',
